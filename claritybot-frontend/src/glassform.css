@@ -1,0 +1,137 @@
+/* ✅ Global reset & box model */
+*, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ✅ Main dark background + center form */
+  body {
+    background: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace, sans-serif;
+    color: #fff;
+  }
+  
+  /* ✅ Add black transparent strip behind the cube */
+  .glass-wrapper {
+    background: rgba(0, 0, 0, 0.3); /* soft black strip */
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+  
+  /* ✅ Text area */
+  .text-center {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* ✅ Shield image */
+  img.shield-icon {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* ✅ 3D form */
+  .form {
+    width: 320px;
+  }
+  .control {
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .control input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 14px 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+  }
+  .control input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .control input:focus {
+    outline: none;
+  }
+  
+  /* ✅ Button */
+  .btn {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  
+  /* ✅ Cube core styles */
+  .block-cube {
+    position: relative;
+  }
+  .block-cube .bg-top,
+  .block-cube .bg-right,
+  .block-cube .bg {
+    position: absolute;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(52,9,121,1) 37%, rgba(0,212,255,1) 94%);
+  }
+  .block-cube .bg-top {
+    height: 10px;
+    bottom: 100%;
+    left: 5px;
+    right: -5px;
+    transform: skew(-45deg);
+  }
+  .block-cube .bg-right {
+    top: -5px;
+    bottom: 5px;
+    width: 10px;
+    left: 100%;
+    transform: skew(0, -45deg);
+  }
+  .block-cube .bg,
+  .block-cube .bg-inner {
+    inset: 0;
+  }
+  .block-cube .bg-inner {
+    background: #212121;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    transition: all 0.2s ease-in-out;
+  }
+  .block-cube .text {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* ✅ Hover & Focus effect */
+  .block-input input:focus ~ .bg-right .bg-inner,
+  .block-input input:focus ~ .bg-top .bg-inner,
+  .block-input input:focus ~ .bg .bg-inner {
+    top: 100%;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  .block-input:hover .bg-top,
+  .block-input:hover .bg-right,
+  .block-input:hover .bg {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .block-cube-hover:hover .bg .bg-inner,
+  .block-cube-hover:focus .bg .bg-inner {
+    top: 100%;
+  }
+  
